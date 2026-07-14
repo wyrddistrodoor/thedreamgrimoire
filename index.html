@@ -1,1 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dream Grimoire — Reserve Your Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14121f;
+    --ink-deep: #09080f;
+    --parchment: #ece3cd;
+    --parchment-dim: #b7ac93;
+    --gilt: #c6a15b;
+    --gilt-bright: #e0bd7c;
+    --amethyst: #7c6a9c;
+    --line: rgba(198,161,91,0.28);
+  }
 
+  *{ box-sizing: border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    min-height: 100vh;
+  }
+
+  body{
+    position: relative;
+    overflow-x: hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 48px 20px;
+  }
+
+  /* Ambient starfield + vignette */
+  .sky{
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(124,106,156,0.25), transparent 55%),
+      radial-gradient(ellipse at 50% 110%, var(--ink-deep) 0%, var(--ink) 60%);
+    z-index: 0;
+  }
+  .stars{
+    position: fixed;
+    inset:0;
+    z-index:0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(236,227,205,0.6) 50%, transparent 100%),
+      radial-gradient(1px 1px at 80% 15%, rgba(236,227,205,0.5) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 60% 60%, rgba(236,227,205,0.45) 50%, transparent 100%),
+      radial-gradient(1px 1px at 25% 75%, rgba(236,227,205,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(236,227,205,0.4) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 35%, rgba(236,227,205,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 70% 45%, rgba(236,227,205,0.35) 50%, transparent 100%);
+    opacity: 0.8;
+  }
+
+  .page{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 620px;
+    background: linear-gradient(180deg, rgba(20,18,31,0.6), rgba(9,8,15,0.75));
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 56px 48px 44px;
+    box-shadow:
+      0 0 0 1px rgba(198,161,91,0.08),
+      0 40px 80px -30px rgba(0,0,0,0.8),
+      0 0 120px -40px rgba(124,106,156,0.35);
+  }
+
+  /* Moon phase arc — signature element */
+  .moon-arc{
+    display:flex;
+    justify-content:center;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+  .moon-arc svg circle.phase-outline{
+    stroke: var(--gilt);
+    stroke-width: 1;
+    fill: none;
+    opacity: 0.55;
+  }
+  .moon-arc svg circle.phase-fill{
+    fill: var(--gilt);
+  }
+  .moon-arc .full .phase-fill{
+    fill: var(--gilt-bright);
+    filter: drop-shadow(0 0 6px rgba(224,189,124,0.9));
+    animation: glow 4.5s ease-in-out infinite;
+  }
+
+  @keyframes glow{
+    0%,100%{ filter: drop-shadow(0 0 4px rgba(224,189,124,0.6)); }
+    50%{ filter: drop-shadow(0 0 12px rgba(224,189,124,1)); }
+  }
+
+  .eyebrow{
+    text-align:center;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gilt);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    color: var(--parchment);
+    margin: 0 0 20px;
+    text-shadow: 0 0 30px rgba(198,161,91,0.15);
+  }
+
+  .subhead{
+    text-align:center;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--parchment-dim);
+    max-width: 460px;
+    margin: 0 auto 38px;
+    font-style: italic;
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 12px;
+    margin: 0 auto 36px;
+    max-width: 320px;
+  }
+  .divider .line{
+    flex:1;
+    height:1px;
+    background: linear-gradient(90deg, transparent, var(--gilt), transparent);
+    opacity: 0.6;
+  }
+  .divider .mark{
+    color: var(--gilt);
+    font-size: 13px;
+  }
+
+  form{
+    display:flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .field-row{
+    display:flex;
+    gap: 10px;
+  }
+
+  input[type="email"]{
+    flex: 1;
+    min-width: 0;
+    background: rgba(236,227,205,0.04);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px;
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--parchment);
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  input[type="email"]::placeholder{
+    color: rgba(183,172,147,0.55);
+    font-style: italic;
+  }
+  input[type="email"]:focus{
+    border-color: var(--gilt);
+    background: rgba(236,227,205,0.07);
+  }
+  input[type="email"]:focus-visible{
+    outline: 2px solid var(--gilt-bright);
+    outline-offset: 2px;
+  }
+
+  button{
+    background: linear-gradient(180deg, var(--gilt-bright), var(--gilt));
+    color: var(--ink-deep);
+    border: none;
+    border-radius: 3px;
+    padding: 14px 22px;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  button:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px -8px rgba(198,161,91,0.6);
+  }
+  button:focus-visible{
+    outline: 2px solid var(--gilt-bright);
+    outline-offset: 3px;
+  }
+  button:active{
+    transform: translateY(0);
+  }
+
+  .fine-print{
+    text-align: center;
+    font-size: 14px;
+    color: var(--parchment-dim);
+    opacity: 0.75;
+    margin: 16px 0 0;
+    font-style: italic;
+  }
+
+  .status{
+    text-align:center;
+    font-size: 15px;
+    min-height: 20px;
+    margin-top: 4px;
+    font-family: 'EB Garamond', serif;
+  }
+  .status.success{ color: var(--gilt-bright); }
+  .status.error{ color: #c98a7a; }
+
+  .seal{
+    text-align:center;
+    margin-top: 40px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--amethyst);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 480px){
+    .page{ padding: 40px 26px 34px; }
+    .field-row{ flex-direction: column; }
+    button{ width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .moon-arc .full .phase-fill{ animation: none; }
+    button{ transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="sky"></div>
+  <div class="stars"></div>
+
+  <main class="page">
+    <div class="moon-arc" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle class="phase-outline" cx="12" cy="12" r="9"/><path class="phase-fill" d="M12,3 A9,9 0 0,0 12,21 Z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle class="phase-outline" cx="12" cy="12" r="9"/><path class="phase-fill" d="M12,3 A9,9 0 0,0 12,21 A4,9 0 0,0 12,3 Z"/></svg>
+      <svg width="26" height="26" viewBox="0 0 24 24" class="full"><circle class="phase-outline" cx="12" cy="12" r="9"/><circle class="phase-fill" cx="12" cy="12" r="9"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle class="phase-outline" cx="12" cy="12" r="9"/><path class="phase-fill" d="M12,3 A9,9 0 0,1 12,21 A4,9 0 0,1 12,3 Z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24"><circle class="phase-outline" cx="12" cy="12" r="9"/><path class="phase-fill" d="M12,3 A9,9 0 0,1 12,21 Z"/></svg>
+    </div>
+
+    <p class="eyebrow">The book is not yet bound</p>
+    <h1>The Dream Grimoire</h1>
+    <p class="subhead">A living book for your dreams — record them, trace the symbols that keep returning, and read their meaning as the moon turns. Reserve your page before the binding opens.</p>
+
+    <div class="divider" aria-hidden="true">
+      <span class="line"></span>
+      <span class="mark">✦</span>
+      <span class="line"></span>
+    </div>
+
+    <form id="waitlist-form" novalidate>
+      <div class="field-row">
+        <input type="email" id="email" name="email" placeholder="your.email@wherever.you.dream" required aria-label="Email address">
+        <button type="submit">Reserve my page</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="fine-print">No spam — only the moon's schedule and word when the gate opens.</p>
+    </form>
+
+    <p class="seal">✦ Est. in the space between waking ✦</p>
+  </main>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const status = document.getElementById('status');
+    const emailInput = document.getElementById('email');
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if(!emailPattern.test(email)){
+        status.textContent = 'That doesn\'t look like a working email — try again.';
+        status.className = 'status error';
+        return;
+      }
+
+      status.textContent = 'Sealing your page…';
+      status.className = 'status';
+
+      // ---------------------------------------------------------------
+      // REPLACE THIS BLOCK with your real email-capture backend.
+      // Options: Formspree, ConvertKit, Mailchimp, Beehiiv, a Google
+      // Sheet via a script, or your own API endpoint. Example using
+      // Formspree (replace YOUR_FORM_ID):
+      //
+      // await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ email })
+      // });
+      // ---------------------------------------------------------------
+
+      await new Promise(res => setTimeout(res, 500)); // placeholder delay
+
+      status.textContent = 'Your page is reserved. Watch the sky.';
+      status.className = 'status success';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
