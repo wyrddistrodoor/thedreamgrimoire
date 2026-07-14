@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink: #14121f;
-    --ink-deep: #09080f;
-    --parchment: #ece3cd;
-    --parchment-dim: #b7ac93;
-    --gilt: #c6a15b;
-    --gilt-bright: #e0bd7c;
-    --amethyst: #7c6a9c;
-    --line: rgba(198,161,91,0.28);
+    --ink: #0f172a;
+    --ink-deep: #020617;
+    --parchment: #e6f0ff;
+    --parchment-dim: #a9bbd6;
+    --gilt: #60a5fa;
+    --gilt-bright: #93c5fd;
+    --amethyst: #7dd3fc;
+    --line: rgba(96,165,250,0.28);
   }
 
   *{ box-sizing: border-box; }
@@ -43,7 +43,7 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse at 50% -10%, rgba(124,106,156,0.25), transparent 55%),
+      radial-gradient(ellipse at 50% -10%, rgba(96,165,250,0.22), transparent 55%),
       radial-gradient(ellipse at 50% 110%, var(--ink-deep) 0%, var(--ink) 60%);
     z-index: 0;
   }
@@ -53,13 +53,13 @@
     inset:0;
     z-index:0;
     background-image:
-      radial-gradient(1px 1px at 10% 20%, rgba(236,227,205,0.6) 50%, transparent 100%),
-      radial-gradient(1px 1px at 80% 15%, rgba(236,227,205,0.5) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 60% 60%, rgba(236,227,205,0.45) 50%, transparent 100%),
-      radial-gradient(1px 1px at 25% 75%, rgba(236,227,205,0.5) 50%, transparent 100%),
-      radial-gradient(1px 1px at 90% 80%, rgba(236,227,205,0.4) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 40% 35%, rgba(236,227,205,0.5) 50%, transparent 100%),
-      radial-gradient(1px 1px at 70% 45%, rgba(236,227,205,0.35) 50%, transparent 100%);
+      radial-gradient(1px 1px at 10% 20%, rgba(230,240,255,0.6) 50%, transparent 100%),
+      radial-gradient(1px 1px at 80% 15%, rgba(230,240,255,0.5) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 60% 60%, rgba(230,240,255,0.45) 50%, transparent 100%),
+      radial-gradient(1px 1px at 25% 75%, rgba(230,240,255,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 90% 80%, rgba(230,240,255,0.4) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 35%, rgba(230,240,255,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 70% 45%, rgba(230,240,255,0.35) 50%, transparent 100%);
     opacity: 0.8;
   }
 
@@ -68,14 +68,14 @@
     z-index: 1;
     width: 100%;
     max-width: 680px;
-    background: linear-gradient(180deg, rgba(20,18,31,0.6), rgba(9,8,15,0.78));
+    background: linear-gradient(180deg, rgba(15,23,42,0.62), rgba(2,6,23,0.82));
     border: 1px solid var(--line);
     border-radius: 4px;
     padding: 56px 48px 44px;
     box-shadow:
-      0 0 0 1px rgba(198,161,91,0.08),
+      0 0 0 1px rgba(96,165,250,0.08),
       0 40px 80px -30px rgba(0,0,0,0.8),
-      0 0 120px -40px rgba(124,106,156,0.35);
+      0 0 120px -40px rgba(125,211,252,0.35);
   }
 
   .moon-arc{
@@ -95,13 +95,13 @@
   }
   .moon-arc .full .phase-fill{
     fill: var(--gilt-bright);
-    filter: drop-shadow(0 0 6px rgba(224,189,124,0.9));
+    filter: drop-shadow(0 0 6px rgba(147,197,253,0.9));
     animation: glow 4.5s ease-in-out infinite;
   }
 
   @keyframes glow{
-    0%,100%{ filter: drop-shadow(0 0 4px rgba(224,189,124,0.6)); }
-    50%{ filter: drop-shadow(0 0 12px rgba(224,189,124,1)); }
+    0%,100%{ filter: drop-shadow(0 0 4px rgba(147,197,253,0.6)); }
+    50%{ filter: drop-shadow(0 0 12px rgba(147,197,253,1)); }
   }
 
   .eyebrow{
@@ -123,7 +123,7 @@
     letter-spacing: 0.01em;
     color: var(--parchment);
     margin: 0 0 20px;
-    text-shadow: 0 0 30px rgba(198,161,91,0.15);
+    text-shadow: 0 0 30px rgba(96,165,250,0.18);
   }
 
   .subhead{
@@ -159,8 +159,8 @@
     max-width: 500px;
     margin: 0 auto;
     padding: 24px;
-    border: 1px solid rgba(198,161,91,0.18);
-    background: rgba(236,227,205,0.03);
+    border: 1px solid rgba(96,165,250,0.18);
+    background: rgba(230,240,255,0.04);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
   }
 
@@ -185,7 +185,7 @@
   input[type="email"], textarea{
     width: 100%;
     min-width: 0;
-    background: rgba(236,227,205,0.05);
+    background: rgba(230,240,255,0.06);
     border: 1px solid var(--line);
     border-radius: 3px;
     padding: 14px 16px;
@@ -197,14 +197,14 @@
   }
 
   input[type="email"]::placeholder, textarea::placeholder{
-    color: rgba(183,172,147,0.55);
+    color: rgba(169,187,214,0.55);
     font-style: italic;
   }
 
   input[type="email"]:focus, textarea:focus{
     border-color: var(--gilt);
-    background: rgba(236,227,205,0.08);
-    box-shadow: 0 0 0 3px rgba(198,161,91,0.08);
+    background: rgba(230,240,255,0.1);
+    box-shadow: 0 0 0 3px rgba(96,165,250,0.1);
   }
 
   input[type="email"]:focus-visible, textarea:focus-visible{
@@ -234,7 +234,7 @@
 
   button:hover{
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px -8px rgba(198,161,91,0.6);
+    box-shadow: 0 8px 24px -8px rgba(96,165,250,0.6);
   }
 
   button:focus-visible{
