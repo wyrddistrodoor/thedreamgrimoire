@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dream Grimoire — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink: #07141a;
+  --ink-deep: #02080b;
+  --parchment: #e7fbff;
+  --parchment-dim: #9fc9d1;
+  --gilt: #2dd4bf;
+  --gilt-bright: #67e8f9;
+  --amethyst: #5eead4;
+  --line: rgba(45,212,191,0.28);
+}
+*{ box-sizing: border-box; }
+html,body{
+  margin:0; padding:0;
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+}
+body{
+  position: relative;
+  overflow-x: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 48px 20px;
+}
+.sky{
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(103,232,249,0.18), transparent 55%),
+    radial-gradient(ellipse at 20% 20%, rgba(45,212,191,0.12), transparent 38%),
+    radial-gradient(ellipse at 50% 110%, var(--ink-deep) 0%, var(--ink) 60%);
+  z-index: 0;
+}
+.stars{
+  position: fixed; inset:0; z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(231,251,255,0.65) 50%, transparent 100%),
+    radial-gradient(1px 1px at 80% 15%, rgba(231,251,255,0.55) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 60%, rgba(231,251,255,0.45) 50%, transparent 100%),
+    radial-gradient(1px 1px at 25% 75%, rgba(231,251,255,0.5) 50%, transparent 100%),
+    radial-gradient(1px 1px at 90% 80%, rgba(231,251,255,0.42) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 35%, rgba(231,251,255,0.5) 50%, transparent 100%),
+    radial-gradient(1px 1px at 70% 45%, rgba(231,251,255,0.35) 50%, transparent 100%);
+  opacity: 0.82;
+}
+.page{
+  position: relative; z-index: 1;
+  width: 100%; max-width: 680px;
+  background: linear-gradient(180deg, rgba(7,20,26,0.64), rgba(2,8,11,0.84));
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 56px 48px 44px;
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,0.08),
+    0 40px 80px -30px rgba(0,0,0,0.82),
+    0 0 120px -40px rgba(103,232,249,0.32);
+}
+.eyebrow{
+  text-align:center; font-family: 'Cinzel', serif; font-size: 12px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gilt);
+  margin: 0 0 18px;
+}
+h1{
+  font-family: 'Cinzel Decorative', 'Cinzel', serif; font-weight: 700;
+  text-align: center; font-size: clamp(30px, 5vw, 44px); line-height: 1.18;
+  letter-spacing: 0.01em; color: var(--parchment); margin: 0 0 30px;
+  text-shadow: 0 0 30px rgba(103,232,249,0.18);
+}
+.divider{
+  display:flex; align-items:center; justify-content:center; gap: 12px;
+  margin: 0 auto 36px; max-width: 320px;
+}
+.divider .line{ flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--gilt), transparent); opacity: 0.6; }
+.divider .mark{ color: var(--gilt); font-size: 13px; }
+p.body-text{
+  font-size: 18px; line-height: 1.8; color: var(--parchment);
+  margin: 0 0 24px;
+}
+p.body-text.dim{ color: var(--parchment-dim); font-style: italic; }
+.seal{
+  text-align:center; margin-top: 40px; font-family: 'Cinzel', serif;
+  font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--amethyst); opacity: 0.8;
+}
+.back-link{
+  display:block; text-align:center; margin-top: 32px;
+}
+.back-link a{
+  color: var(--gilt); font-family: 'Cinzel', serif; font-size: 12px;
+  letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+}
+.back-link a:hover{ color: var(--gilt-bright); }
+@media (max-width: 560px){
+  .page{ padding: 40px 26px 34px; }
+}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="stars"></div>
+<main class="page">
+  <p class="eyebrow">The book is unbound</p>
+  <h1>About the grimoire</h1>
+  <div class="divider" aria-hidden="true"><span class="line"></span><span class="mark">✦</span><span class="line"></span></div>
+
+  <p class="body-text">The Dream Grimoire began the way most dreams do — without much explanation. Vivid ones, returning ones, the kind that stay with you long after waking. This book exists to hold them.</p>
+
+  <p class="body-text">It isn't a dictionary of fixed meanings, and no one here claims to interpret your dreams for you. The symbols that matter are the ones that keep returning to <em>you</em> — this is simply a place to notice them.</p>
+
+  <p class="body-text">Write a dream down. Watch which images come back. Let the book remember what you might otherwise forget by morning.</p>
+
+  <p class="body-text dim">No spam, no readings, no promises of hidden meaning. Only the moon's phases, and hedge riding. We get wyrd here.</p>
+
+  <div class="back-link"><a href="index.html">Return to the threshold</a></div>
+  <p class="seal">✦ Est. in the space between waking ✦</p>
+</main>
+</body>
+</html>
